@@ -1,0 +1,8 @@
+
+.idea/
+src/test/
+target/
+target/ContactTestTask-1.0-SNAPSHOT/WEB-INF/classes/data.txt
+target/classes/data.txt
+target/maven-status/
+src/main/webapp/
