@@ -15,15 +15,15 @@ public class TaskController {
     @Autowired
     private ContactService service;
 
-/*    @RequestMapping(value="/test",method = RequestMethod.GET)
+    @RequestMapping(value="/test",method = RequestMethod.GET)
     @ResponseBody
     public  String test(ModelMap model){
-        Contact c1= new Contact(1,"Василий","Грюмов","Сергеевич",new Date(1992,3,5),"88928538928");
-        Contact c2= new Contact(2,"Игорь","Трофимов","Алексеевич",new Date(1982,5,12),"88925152928");
-        service.save(c1);
-        service.save(c2);
+        Contact c3= new Contact(3,"Антон","Волов","Сергеевич",new Date(1995,3,5),"8211538928");
+        Contact c4= new Contact(4,"Ирина","Школова","Алексеевич",new Date(1982,5,12),"83335152928");
+        service.save(c3);
+        service.save(c4);
         return "good";
-    }*/
+    }
 
     @RequestMapping(value="/contacts",method = RequestMethod.GET)
     @ResponseBody

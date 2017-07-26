@@ -37,8 +37,7 @@ public class ContactDAOImp implements ContactDAO {
     public void deleteContact(Integer id) {
         List<Contact> contacts = ser.getContactList();
         Contact con = contacts.stream().filter(f-> f.getId().equals(id)).findFirst().orElse(null);
-        Integer  contactID = contacts.indexOf(con);
-        contacts.remove(contactID);
+        contacts.remove(con);
         ser.saveContactToFile(contacts);
     }
 }
