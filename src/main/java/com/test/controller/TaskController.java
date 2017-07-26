@@ -19,7 +19,7 @@ public class TaskController {
     @ResponseBody
     public  String test(ModelMap model){
         Contact c1= new Contact(1,"Василий","Грюмов","Сергеевич",new Date(1992,3,5),"88928538928");
-       Contact c2= new Contact(2,"Игорь","Трофимов","Алексеевич",new Date(1982,5,12),"88925152928");
+        Contact c2= new Contact(2,"Игорь","Трофимов","Алексеевич",new Date(1982,5,12),"88925152928");
         service.save(c1);
         service.save(c2);
         return "good";

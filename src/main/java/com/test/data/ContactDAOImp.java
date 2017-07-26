@@ -16,11 +16,8 @@ public class ContactDAOImp implements ContactDAO {
 
     public Contact contactById(Integer id) {
         List<Contact> contacts = ser.getContactList();
-        Integer contactID=-1;
-        for (Contact con:contacts) {
-            if(id.equals(con.getId())) contactID=contacts.indexOf(con);
-        }
-        return contacts.get(contactID);
+        Contact contact = contacts.stream().filter(f-> f.getId().equals(id)).findFirst().orElse(null);
+        return contact;
     }
 
     public void newContact(Contact contact) {
@@ -31,21 +28,16 @@ public class ContactDAOImp implements ContactDAO {
 
     public void updateContact(Contact contact) {
         List<Contact> contacts = ser.getContactList();
-        for (Contact con:contacts) {
-            if(contact.getId().equals(con.getId())) {
-              Integer  contactID = contacts.indexOf(con);
-                contacts.set(contactID,contact);
-                ser.saveContactToFile(contacts);
-            }
-        }
+        Contact con = contacts.stream().filter(f-> f.getId().equals(contact.getId())).findFirst().orElse(null);
+        Integer  contactID = contacts.indexOf(con);
+        contacts.set(contactID,contact);
+        ser.saveContactToFile(contacts);
     }
 
     public void deleteContact(Integer id) {
         List<Contact> contacts = ser.getContactList();
-        Integer contactID=-1;
-        for (Contact con:contacts) {
-            if(id.equals(con.getId())) contactID=contacts.indexOf(con);
-        }
+        Contact con = contacts.stream().filter(f-> f.getId().equals(id)).findFirst().orElse(null);
+        Integer  contactID = contacts.indexOf(con);
         contacts.remove(contactID);
         ser.saveContactToFile(contacts);
     }
